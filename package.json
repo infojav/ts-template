@@ -1,0 +1,58 @@
+{
+  "name": "ts-init",
+  "version": "0.0.1",
+  "description": "Typescript template",
+  "main": "index.ts",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "serve": "npm-run-all --parallel tsc:watch dist:watch",
+    "tsc": "npx tsc",
+    "tsc:watch": "npx tsc -w",
+    "dist:watch": "nodemon dist/server.js",
+    "test": "jest test",
+    "lint": "tsc --noEmit && eslint '*/**/*.{js,ts,tsx}' --quiet --fix",
+    "prettier-check": "prettier --list-different src/**/*",
+    "clean:node_modules": "rimraf node_modules",
+    "install:packages": "npm install",
+    "reinstall:all": "npm-run-all clean:* install:*"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
+  },
+  "keywords": [
+    "infojav",
+    "typescript",
+    "web",
+    "node"
+  ],
+  "author": "Javier Perea",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "^7.8.6",
+    "@babel/preset-env": "^7.8.6",
+    "@babel/preset-typescript": "^7.8.3",
+    "@typescript-eslint/eslint-plugin": "^2.21.0",
+    "@typescript-eslint/parser": "^2.21.0",
+    "babel-jest": "^25.1.0",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.10.0",
+    "eslint-plugin-prettier": "^3.1.2",
+    "eslint-plugin-react": "^7.18.3",
+    "husky": "^4.2.3",
+    "jest": "^25.1.0",
+    "nodemon": "^2.0.2",
+    "npm-run-all": "^4.1.5",
+    "prettier": "1.19.1",
+    "pretty-quick": "^2.0.1",
+    "rimraf": "^3.0.2",
+    "typescript": "^3.8.2"
+  },
+  "engines": {
+    "node": ">=10.0.0"
+  },
+  "dependencies": {}
+}
